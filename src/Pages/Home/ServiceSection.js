@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ServiceSectionCard from '../Home/ServiceSectionCard';
+import ServiceSectionCard from './ServiceSectionCard';
 
-const Services = () => {
+const ServiceSection = () => {
 
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('http://localhost:5000/services/3')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
-
 
     return (
         <div className='my-5 px-3'>
@@ -24,8 +23,11 @@ const Services = () => {
                     services.map(service => <ServiceSectionCard key={service._id} service={service}></ServiceSectionCard>)
                 }
             </div>
+            <div className='text-center my-8'>
+                <button className='btn btn-outline btn-info'><Link to="/services">See All Services</Link></button>
+            </div>
         </div>
     );
 };
 
-export default Services;
+export default ServiceSection;
