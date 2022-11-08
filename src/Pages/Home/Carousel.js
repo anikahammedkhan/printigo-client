@@ -6,7 +6,7 @@ import logo3 from '../../Assets/img-3.png';
 
 const Carousel = () => {
     return (
-        <div className="carousel w-full h-[700px]">
+        <div className="carousel w-full h-full">
             <div id="slide1" className="carousel-item relative w-full">
                 <div className='carousel-img'>
                     <img src={logo1} alt="" className="w-full" />
