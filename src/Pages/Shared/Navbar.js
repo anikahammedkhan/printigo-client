@@ -17,10 +17,14 @@ const Navbar = () => {
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/services">Services</Link></li>
                         <li><Link to="/blog">Blog</Link></li>
-                        <li><Link to="/my-reviews">My Reviews</Link></li>
-                        <li><Link to="/add-service">Add Service</Link></li>
-                        <li><Link to="/login">Login</Link></li>
-                        <li><button onClick={logOut} className='btn btn-warning'>LogOut</button></li>
+                        {
+                            user?.uid ?
+                                <>
+                                    <li><Link to="/my-reviews">My Reviews</Link></li>
+                                    <li><Link to="/add-service">Add Service</Link></li>
+                                </> : <>
+                                </>
+                        }
                     </ul>
                 </div>
                 <Link to="/">
