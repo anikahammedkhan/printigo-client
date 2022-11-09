@@ -1,15 +1,62 @@
 import React, { useContext } from 'react';
+
 import { AuthContext } from '../../Context/UserContext';
 
 const AddService = () => {
 
     const { user } = useContext(AuthContext);
 
+
     // current date and time
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     let dateTime = date + ' ' + time;
+
+    const handleAddService = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const title = form.title.value;
+        const image = form.image.value;
+        const email = user.email;
+        const date = dateTime;
+        const price = form.price.value;
+        const ratings = form.ratings.value;
+        const users = form.users.value;
+        const comments = form.comments.value;
+        const details = form.details.value;
+
+        // post data created by user to database
+        const serviceData = {
+            title,
+            image,
+            email,
+            date,
+            price,
+            ratings,
+            users,
+            comments,
+            details
+        }
+
+        fetch('http://localhost:5000/services', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(serviceData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    alert('Service added successfully')
+                    form.reset();
+                }
+            })
+            .catch(error => console.error(error));
+    }
+
 
     return (
         <div>
@@ -19,7 +66,7 @@ const AddService = () => {
                     Please fill up the form below to add a new service.
                 </p>
             </div>
-            <form className='w-3/4 mx-auto'>
+            <form onSubmit={handleAddService} className='w-3/4 mx-auto'>
                 <div className='grid grid-cols-1 gap-4'>
                     <div className="form-control">
                         <label className="label">
