@@ -7,7 +7,7 @@ const ServiceSection = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services/3')
+        fetch('http://localhost:5000/services/limit')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

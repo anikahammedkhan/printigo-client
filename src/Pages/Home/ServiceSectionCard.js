@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const ServiceSectionCard = ({ service }) => {
 
     const { categoryID, details, image, rating, title, users, _id } = service;
@@ -15,7 +16,7 @@ const ServiceSectionCard = ({ service }) => {
                 <h2 className="card-title">{title}</h2>
                 <p>{shortDetails}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary"><Link>See Details</Link></button>
+                    <button className="btn btn-primary"><Link to={`/services/${_id}`}>See Details</Link></button>
                 </div>
             </div>
         </div>
