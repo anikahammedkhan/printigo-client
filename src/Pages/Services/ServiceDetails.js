@@ -42,7 +42,7 @@ const ServiceDetails = () => {
                     <p className='text-gray-500'>{details}</p>
                 </div>
             </div>
-            <Review></Review>
+            <Review id={_id}></Review>
             <AddReview id={_id}></AddReview>
         </div>
     );

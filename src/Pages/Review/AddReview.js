@@ -23,11 +23,7 @@ const AddReview = ({ id }) => {
         const date = dateTime;
         const ratings = form.ratings.value;
         const details = form.details.value;
-
-        if (!user) {
-            navigate('/login', { state: { from: location } });
-        }
-
+        const image = user?.photoURL || "https://placeimg.com/192/192/people";
 
         // post data created by user to database
         const reviewData = {
@@ -36,23 +32,29 @@ const AddReview = ({ id }) => {
             date,
             ratings,
             details,
-            serviceId
+            serviceId,
+            image
         }
 
-        fetch('http://localhost:5000/reviews', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(reviewData)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data) {
-                    alert('Review added successfully');
-                    form.reset();
-                }
+        if (!user) {
+            navigate('/login', { state: { from: location } });
+        }
+        else {
+            fetch('http://localhost:5000/reviews', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(reviewData)
             })
+                .then(res => res.json())
+                .then(data => {
+                    if (data) {
+                        alert('Review added successfully');
+                        form.reset();
+                    }
+                })
+        }
     }
     return (
         <div className="flex flex-col max-w-xl p-8 shadow-2xl rounded-xl lg:p-12 mx-auto">
