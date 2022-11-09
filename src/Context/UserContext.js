@@ -12,19 +12,23 @@ const UserContext = ({ children }) => {
 
 
     const createUser = (email, password) => {
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     };
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     };
 
 
     const signInWithGoogle = () => {
+        setLoading(true);
         const provider = new GoogleAuthProvider();
         return signInWithPopup(auth, provider);
     };
 
     const signInWithFacebook = () => {
+        setLoading(true);
         const provider = new FacebookAuthProvider();
         return signInWithPopup(auth, provider);
     };
