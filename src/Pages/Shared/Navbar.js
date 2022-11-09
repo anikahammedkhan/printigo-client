@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
+import { AuthContext } from '../../Context/UserContext';
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
     return (
         <div className="navbar bg-base-100 py-4 shadow-lg rounded-xl sticky top-0 z-10">
             <div className="navbar-start">
@@ -17,7 +20,7 @@ const Navbar = () => {
                         <li><Link to="/my-reviews">My Reviews</Link></li>
                         <li><Link to="/add-service">Add Service</Link></li>
                         <li><Link to="/login">Login</Link></li>
-                        <li><Link to="/">Logout</Link></li>
+                        <li><button onClick={logOut} className='btn btn-warning'>LogOut</button></li>
                     </ul>
                 </div>
                 <Link to="/">
@@ -29,14 +32,27 @@ const Navbar = () => {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/services">Services</Link></li>
                     <li><Link to="/blog">Blog</Link></li>
-                    <li><Link to="/my-reviews">My Reviews</Link></li>
-                    <li><Link to="/add-service">Add Service</Link></li>
-                    <li><Link to="/login">Login</Link></li>
-                    <li><Link to="/">Logout</Link></li>
+                    {
+                        user?.uid ?
+                            <>
+                                <li><Link to="/my-reviews">My Reviews</Link></li>
+                                <li><Link to="/add-service">Add Service</Link></li>
+                            </> : <>
+                            </>
+                    }
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link className="btn" to="/register">Register</Link>
+                <ul className="menu menu-horizontal p-0 font-semibold text-lg">
+                    {
+                        user?.uid ?
+                            <>
+                                <li><button onClick={logOut} className='btn btn-warning'>Log Out</button></li>
+                            </> : <>
+                                <li><Link className="btn btn-info" to='/login'>Login</Link></li>
+                            </>
+                    }
+                </ul>
             </div>
         </div>
     );
