@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../Firebase/firebse.config';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, GithubAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, FacebookAuthProvider } from "firebase/auth";
 
 
 export const AuthContext = createContext();
@@ -24,8 +24,8 @@ const UserContext = ({ children }) => {
         return signInWithPopup(auth, provider);
     };
 
-    const signInWithGithub = () => {
-        const provider = new GithubAuthProvider();
+    const signInWithFacebook = () => {
+        const provider = new FacebookAuthProvider();
         return signInWithPopup(auth, provider);
     };
 
@@ -46,12 +46,13 @@ const UserContext = ({ children }) => {
 
 
     const authInfo = {
+        auth,
         user,
         loading,
         createUser,
         signIn,
         signInWithGoogle,
-        signInWithGithub,
+        signInWithFacebook,
         logOut
     };
 
