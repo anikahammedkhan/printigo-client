@@ -3,6 +3,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Lottie from "lottie-react";
 import printing from "../../Assets/Lottie/printing.json";
 import orderNow from "../../Assets/Lottie/order-now.json";
+import Review from '../Review/Review';
+import AddReview from '../Review/AddReview';
 
 
 const ServiceDetails = () => {
@@ -40,6 +42,8 @@ const ServiceDetails = () => {
                     <p className='text-gray-500'>{details}</p>
                 </div>
             </div>
+            <Review></Review>
+            <AddReview id={_id}></AddReview>
         </div>
     );
 };
