@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Lottie from "lottie-react";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 import printing from "../../Assets/Lottie/printing.json";
 import orderNow from "../../Assets/Lottie/order-now.json";
 import Review from '../Review/Review';
@@ -19,7 +21,11 @@ const ServiceDetails = () => {
             <div>
                 <div className='grid grid-cols-4'>
                     <div className='col-span-3 p-4'>
-                        <img className='w-full rounded-lg' src={image} alt="" />
+                        <PhotoProvider>
+                            <PhotoView src={image}>
+                                <img className='w-full rounded-lg' src={image} alt="" />
+                            </PhotoView>
+                        </PhotoProvider>
                     </div>
                     <div className='p-4'>
                         <div className='w-3/4'>
