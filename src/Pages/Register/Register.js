@@ -7,7 +7,7 @@ import { updateProfile } from 'firebase/auth';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Register = () => {
-    const { auth, createUser } = useContext(AuthContext);
+    const { auth, createUser, loading } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const handleRegister = (e) => {
@@ -34,6 +34,14 @@ const Register = () => {
                 setError(error.message);
             });
     };
+
+    if (loading) {
+        return (
+            <div className='w-full h-[600px] flex items-center'>
+                <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-cyan-600 mx-auto"></div>
+            </div>
+        )
+    }
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 my-12 justify-items-center place-items-center px-3'>

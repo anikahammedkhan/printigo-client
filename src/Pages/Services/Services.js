@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ServiceSectionCard from '../Home/ServiceSectionCard';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { AuthContext } from '../../Context/UserContext';
 
 const Services = () => {
+
+    const { loading } = useContext(AuthContext);
 
     const [services, setServices] = useState([]);
 
@@ -11,6 +14,14 @@ const Services = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
+
+    if (loading) {
+        return (
+            <div className='w-full h-[600px] flex items-center'>
+                <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-cyan-600 mx-auto"></div>
+            </div>
+        )
+    }
 
 
     return (

@@ -7,7 +7,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 const Login = () => {
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, loading } = useContext(AuthContext);
 
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -70,6 +70,14 @@ const Login = () => {
                 setError(error.message);
             });
     };
+
+    if (loading) {
+        return (
+            <div className='w-full h-[600px] flex items-center'>
+                <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-cyan-600 mx-auto"></div>
+            </div>
+        )
+    }
 
 
     return (
