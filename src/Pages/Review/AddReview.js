@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 
-const AddReview = ({ id }) => {
+const AddReview = ({ id, title }) => {
     const { user } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
@@ -33,7 +33,8 @@ const AddReview = ({ id }) => {
             ratings,
             details,
             serviceId,
-            image
+            image,
+            title
         }
 
         if (!user) {
