@@ -3,12 +3,16 @@ import SingleReview from './SingleReview';
 
 const Review = ({ id }) => {
     const [reviews, setReviews] = useState([]);
+    const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews/${id}`)
             .then(res => res.json())
-            .then(data => setReviews(data))
-    }, [id])
+            .then(data => {
+                setReviews(data)
+                setRefresh(!refresh)
+            })
+    }, [id, refresh])
 
     return (
         <div>

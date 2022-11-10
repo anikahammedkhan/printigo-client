@@ -1,7 +1,21 @@
 import React from 'react';
 
-const MySingleReview = ({ review }) => {
-    const { date, details, ratings, title } = review;
+const MySingleReview = ({ review, setRefresh, refresh }) => {
+    console.log(review);
+
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/delete/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(result => {
+                if (result) {
+                    setRefresh(!refresh);
+                    alert('Review Deleted Successfully')
+                }
+            })
+    }
+    const { date, details, ratings, title, _id } = review;
     return (
         <tbody>
             <tr>
@@ -18,7 +32,8 @@ const MySingleReview = ({ review }) => {
                 </td>
                 <td>{ratings}</td>
                 <th>
-                    <button className="btn btn-ghost btn-xs">Delete</button>
+                    <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>
+                    <button className="btn btn-ghost btn-xs">Edit</button>
                 </th>
             </tr>
         </tbody>

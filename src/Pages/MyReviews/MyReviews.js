@@ -6,12 +6,14 @@ const MyReviews = () => {
     const { user } = useContext(AuthContext)
 
     const [myReviews, setMyReviews] = useState([]);
+    const [refresh, setRefresh] = useState(false);
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/my-reviews/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyReviews(data))
-    }, [user?.email])
+    }, [user?.email, refresh])
 
     return (
         <div className=''>
@@ -30,11 +32,11 @@ const MyReviews = () => {
                             <th>Service Name & Date</th>
                             <th>Review</th>
                             <th>Ratings</th>
-                            <th>Delete Review</th>
+                            <th>Delete / Edit Review</th>
                         </tr>
                     </thead>
                     {
-                        myReviews.map(review => <MySingleReview key={review._id} review={review} />)
+                        myReviews.map(review => <MySingleReview key={review._id} review={review} setRefresh={setRefresh} refresh={refresh} />)
                     }
                 </table>
             </div>

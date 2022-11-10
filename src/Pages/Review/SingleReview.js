@@ -3,7 +3,7 @@ import React from 'react';
 const SingleReview = ({ review }) => {
     const { date, details, email, name, ratings, image } = review;
     return (
-        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y divide-gray-700 dark:bg-gray-900 dark:text-gray-100 shadow-2xl rounded-xl">
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
@@ -11,7 +11,7 @@ const SingleReview = ({ review }) => {
                     </div>
                     <div>
                         <h4 className="font-bold">{name}</h4>
-                        <h5 className="font-bold">{email}</h5>
+                        <h5>{email}</h5>
                         <span className="text-xs dark:text-gray-400">Date : {date}</span>
                     </div>
                 </div>
