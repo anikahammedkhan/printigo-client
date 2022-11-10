@@ -15,8 +15,8 @@ const Services = () => {
     return (
         <div className='my-5 px-3'>
             <div className='text-center'>
-                <h1 className='text-4xl md:text-5xl font-bold my-3 text-cyan-500'>Our Services</h1>
-                <p className='font-semibold text-base md:text-lg text-slate-600'>We are a reliable and affordable digital agency and talent network. We channel creativity, colors, <br /> copy and print facility to help our customer with better branding.</p>
+                <h1 className='text-4xl md:text-5xl font-bold my-3 text-cyan-500'>My Services</h1>
+                <p className='font-semibold text-base md:text-lg text-slate-600'>I own a reliable and affordable digital agency and talent network. We channel creativity, colors, <br /> copy and print facility to help our customer with better branding.</p>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-6'>
                 {

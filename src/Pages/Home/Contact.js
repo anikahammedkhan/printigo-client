@@ -3,7 +3,7 @@ import './Contact.css';
 
 const Contact = () => {
     return (
-        <div className='contact-us block md:flex items-center justify-evenly p-4 md:p-0'>
+        <div className='contact-us block md:flex items-center justify-evenly p-4 md:p-0 h-[800px]'>
             <div className='w-full md:w-1/4 lg:w-1/2 my-8 md:my-0'>
                 <h1 className='text-4xl md:text-5xl lg:text-8xl font-bold text-yellow-400'>Let's Talk</h1>
                 <p className='font-bold text-xl md:text-lg lg:text-2xl text-white'>To Request a quote or want to meet-up for a coffee, Contact me directly on What's App or fill out the form and I'will get back to you promptly!</p>
