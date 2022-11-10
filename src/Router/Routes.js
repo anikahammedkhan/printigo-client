@@ -20,7 +20,7 @@ const router = createBrowserRouter([
             {
                 path: "/services/:serviceID",
                 element: <ServiceDetails />,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.serviceID}`)
+                loader: ({ params }) => fetch(`https://printigo-server.vercel.app/services/${params.serviceID}`)
             },
             { path: '/blog', element: <Blog></Blog> },
             { path: '/login', element: <Login></Login> },
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
             {
                 path: "/update-review/:id",
                 element: <PrivateRoute><UpdateReview></UpdateReview></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/single-reviews/${params.id}`)
+                loader: ({ params }) => fetch(`https://printigo-server.vercel.app/single-reviews/${params.id}`)
             },
             { path: '*', element: <Error></Error> }
         ]

@@ -34,7 +34,7 @@ const UpdateReview = () => {
         const proceed = window.confirm('Are you sure, you want to Update this review?');
 
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${_id}`, {
+            fetch(`https://printigo-server.vercel.app/reviews/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'

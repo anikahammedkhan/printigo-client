@@ -7,7 +7,7 @@ const ServiceSection = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services/limit')
+        fetch('https://printigo-server.vercel.app/services/limit')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])

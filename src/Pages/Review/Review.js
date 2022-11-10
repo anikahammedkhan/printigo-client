@@ -6,7 +6,7 @@ const Review = ({ id }) => {
     const [refresh, setRefresh] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews/${id}`)
+        fetch(`https://printigo-server.vercel.app/reviews/${id}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)

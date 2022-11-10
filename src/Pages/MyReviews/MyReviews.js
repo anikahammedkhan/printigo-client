@@ -11,7 +11,7 @@ const MyReviews = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/my-reviews/${user?.email}`, {
+        fetch(`https://printigo-server.vercel.app/my-reviews/${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('access-token')}`
             }

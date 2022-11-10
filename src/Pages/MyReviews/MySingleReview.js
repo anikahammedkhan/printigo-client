@@ -9,7 +9,7 @@ const MySingleReview = ({ review, setRefresh, refresh }) => {
         const proceed = window.confirm('Are you sure, you want to delete this review?');
 
         if (proceed) {
-            fetch(`http://localhost:5000/delete/${id}`, {
+            fetch(`https://printigo-server.vercel.app/delete/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

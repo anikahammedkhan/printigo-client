@@ -41,7 +41,7 @@ const AddReview = ({ id, title }) => {
             navigate('/login', { state: { from: location } });
         }
         else {
-            fetch('http://localhost:5000/reviews', {
+            fetch('https://printigo-server.vercel.app/reviews', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
