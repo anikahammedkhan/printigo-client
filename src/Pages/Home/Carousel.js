@@ -17,15 +17,16 @@ const Carousel = () => {
                 <div className='hidden md:flex'>
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
                         <div>
-                            <p className='bg-red-500 w-1/3 p-2 text-white rou'>Digital Printing Service</p>
+                            <p className='bg-red-500 w-1/4 p-2 text-white rou'>Digital Printing Service</p>
                             <h1 className='text-5xl font-bold text-white'>
-                                Produce Digital Printing <br />
-                                With Business Growing
+                                Hi, <br />
+                                I'm <span className='text-warning'>Anik Khan</span> <br />
+                                I Produce Digital Printing Service
                             </h1>
                         </div>
                     </div>
                     <div className="absolute flex justify-end transform -translate-y-1/2 w-2/5 left-24 top-1/2">
-                        <p className='text-xl text-white'>We are genuinely invested in your company and getting your results</p>
+                        <p className='text-xl text-white'>I am genuinely invested in your company and getting your results</p>
                     </div>
                     <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
                         <button className="btn btn-warning mr-5 text-white font-bold">Get In Touch</button>
@@ -46,15 +47,16 @@ const Carousel = () => {
                 <div className='hidden md:flex'>
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
                         <div>
-                            <p className='bg-red-500 w-1/3 p-2 text-white rou'>Digital Printing Service</p>
+                            <p className='bg-red-500 w-1/4 p-2 text-white rou'>Digital Printing Service</p>
                             <h1 className='text-5xl font-bold text-white'>
-                                Produce Digital Printing <br />
-                                With Business Growing
+                                Hi, <br />
+                                I'm <span className='text-warning'>Anik Khan</span> <br />
+                                I Produce Digital Printing Service
                             </h1>
                         </div>
                     </div>
                     <div className="absolute flex justify-end transform -translate-y-1/2 w-2/5 left-24 top-1/2">
-                        <p className='text-xl text-white'>We are genuinely invested in your company and getting your results</p>
+                        <p className='text-xl text-white'>I am genuinely invested in your company and getting your results</p>
                     </div>
                     <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
                         <button className="btn btn-warning mr-5 text-white font-bold">Get In Touch</button>
@@ -75,15 +77,16 @@ const Carousel = () => {
                 <div className='hidden md:flex'>
                     <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
                         <div>
-                            <p className='bg-red-500 w-1/3 p-2 text-white rou'>Digital Printing Service</p>
+                            <p className='bg-red-500 w-1/4 p-2 text-white rou'>Digital Printing Service</p>
                             <h1 className='text-5xl font-bold text-white'>
-                                Produce Digital Printing <br />
-                                With Business Growing
+                                Hi, <br />
+                                I'm <span className='text-warning'>Anik Khan</span> <br />
+                                I Produce Digital Printing Service
                             </h1>
                         </div>
                     </div>
                     <div className="absolute flex justify-end transform -translate-y-1/2 w-2/5 left-24 top-1/2">
-                        <p className='text-xl text-white'>We are genuinely invested in your company and getting your results</p>
+                        <p className='text-xl text-white'>I am genuinely invested in your company and getting your results</p>
                     </div>
                     <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
                         <button className="btn btn-warning mr-5 text-white font-bold">Get In Touch</button>
