@@ -12,7 +12,7 @@ import AddReview from '../Review/AddReview';
 const ServiceDetails = () => {
 
     const data = useLoaderData();
-    const { details, image, rating, title, users, _id, price } = data;
+    const { details, image, ratings, title, users, _id, price } = data;
     return (
         <div className='my-5'>
             <div className='text-center'>
@@ -34,7 +34,7 @@ const ServiceDetails = () => {
                         <h3 className='text-4xl font-bold text-cyan-500'>Details</h3>
                         <p className='text-2xl font-bold'>{title}</p>
                         <p className='text-gray-500 font-semibold text-2xl'>Users: {users}</p>
-                        <p className='text-gray-500 font-semibold text-2xl'>Users Rating: {rating}</p>
+                        <p className='text-gray-500 font-semibold text-2xl'>Users Rating: {ratings}</p>
                         <p className='text-gray-500 font-semibold text-2xl'>Price : {price}$</p>
                         <div>
                             <Lottie animationData={orderNow} loop={true} />;
