@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import register1 from "../../Assets/Lottie/register.json";
 import { AuthContext } from '../../Context/UserContext';
 import { updateProfile } from 'firebase/auth';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Register = () => {
     const { auth, createUser } = useContext(AuthContext);
@@ -36,6 +37,12 @@ const Register = () => {
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 my-12 justify-items-center place-items-center px-3'>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Register</title>
+                    <meta name="description" content="Register" />
+                </Helmet>
+            </HelmetProvider>
             <div className="w-full max-w-md p-4 rounded-md shadow sm:p-8 dark:bg-gray-900 dark:text-gray-100">
                 <h1 className="mb-3 text-3xl font-semibold text-center">Register for an account</h1>
                 <h2 className="text-sm text-center dark:text-gray-400">Already have an account?

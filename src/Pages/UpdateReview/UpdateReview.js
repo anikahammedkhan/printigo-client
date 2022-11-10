@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 
 const UpdateReview = () => {
@@ -11,8 +12,9 @@ const UpdateReview = () => {
     const { _id, name, details, email, image, ratings, title } = reviewData;
     let today = new Date();
     let date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    let dateTime = date + ' ' + time;
+    let time = today.getHours() + "." + today.getMinutes() + "." + today.getSeconds();
+
+    let dateTime = time + ' ' + date;
 
     const handleUpdate = (e) => {
         e.preventDefault();
@@ -52,6 +54,11 @@ const UpdateReview = () => {
 
     return (
         <div className="flex flex-col max-w-xl p-8 shadow-2xl rounded-xl lg:p-12 mx-auto my-10">
+            <HelmetProvider>
+                <Helmet>
+                    <title>Update Review</title>
+                </Helmet>
+            </HelmetProvider>
             <div className="flex flex-col items-center w-full">
                 <h2 className="text-3xl text-center font-bold text-cyan-500">Update Review for : {title}</h2>
                 <form onSubmit={handleUpdate} className="flex flex-col w-full">

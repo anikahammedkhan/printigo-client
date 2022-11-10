@@ -7,7 +7,7 @@ import printing from "../../Assets/Lottie/printing.json";
 import orderNow from "../../Assets/Lottie/order-now.json";
 import Review from '../Review/Review';
 import AddReview from '../Review/AddReview';
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const ServiceDetails = () => {
 
@@ -15,6 +15,12 @@ const ServiceDetails = () => {
     const { details, image, ratings, title, users, _id, price } = data;
     return (
         <div className='my-5'>
+            <HelmetProvider>
+                <Helmet>
+                    <title>{title}</title>
+                    <meta name="description" content={title} />
+                </Helmet>
+            </HelmetProvider>
             <div className='text-center'>
                 <h1 className='bg-red-500 inline  p-2 text-white'>Service Details</h1>
             </div>

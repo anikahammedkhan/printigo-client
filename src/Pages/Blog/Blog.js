@@ -1,8 +1,15 @@
 import React from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Blog = () => {
     return (
         <div className="flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
+            <HelmetProvider>
+                <Helmet>
+                    <title>Blog</title>
+                    <meta name="description" content="Blog" />
+                </Helmet>
+            </HelmetProvider>
             <div className='text-center my-8'>
                 <h2 className="text-5xl font-semibold text-cyan-500">Frequently Asked Questions</h2>
             </div>

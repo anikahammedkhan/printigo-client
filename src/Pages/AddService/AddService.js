@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { AuthContext } from '../../Context/UserContext';
 
 const AddService = () => {
-
     const { user } = useContext(AuthContext);
 
 
@@ -55,10 +54,14 @@ const AddService = () => {
             })
             .catch(error => console.error(error));
     }
-
-
     return (
         <div>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Add Service</title>
+                    <meta name="description" content="Add Service" />
+                </Helmet>
+            </HelmetProvider>
             <div className='text-center'>
                 <h1 className='text-3xl md:text-5xl font-bold my-3 text-cyan-500'>Add New Service</h1>
                 <p className='text-lg font-semibold text-red-600'>

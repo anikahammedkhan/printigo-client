@@ -1,4 +1,4 @@
-# Project Name : Printigo [Individual Printing Service Provider]
+# Project Name : Printigo [ Individual Printing Service Provider ]
 
 ### Github Repo Link : https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-anikahammedkhan
 
@@ -10,7 +10,7 @@
 
 # Project Details:
 
-Printigo0 is an online based Individual Printing Service Provider Website. 
+Printigo is an online based Individual Printing Service Provider Website. 
 Printigo have 6 Professional services that can help you to channel creativity, colors, copy and print facility to help my customer with better branding
 
 

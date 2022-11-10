@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Lottie from "lottie-react";
 import login from "../../Assets/Lottie/login.json";
 import { AuthContext } from '../../Context/UserContext';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 const Login = () => {
     const { signIn, signInWithGoogle } = useContext(AuthContext);
@@ -19,9 +21,24 @@ const Login = () => {
         const password = form.password.value;
         signIn(email, password)
             .then((result) => {
-                console.log(result);
-                form.reset();
-                navigate(from, { replace: true });
+                const user = result.user;
+                const currentUser = {
+                    email: user.email
+                }
+                // get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('access-token', data.token);
+                        form.reset();
+                        navigate(from, { replace: true });
+                    });
             })
             .catch((error) => {
                 setError(error.message);
@@ -31,7 +48,23 @@ const Login = () => {
     const handleGoogleLogin = () => {
         signInWithGoogle()
             .then((result) => {
-                navigate(from, { replace: true });
+                const user = result.user;
+                const currentUser = {
+                    email: user.email
+                }
+                // get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('access-token', data.token);
+                        navigate(from, { replace: true });
+                    });
             })
             .catch((error) => {
                 setError(error.message);
@@ -41,6 +74,11 @@ const Login = () => {
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 my-12 justify-items-center place-items-center px-3'>
+            <HelmetProvider>
+                <Helmet>
+                    <title>Login</title>
+                </Helmet>
+            </HelmetProvider>
             <div>
                 <div className="w-full max-w-md p-4 rounded-md shadow-2xl sm:p-8">
                     <h2 className="mb-3 text-3xl font-semibold text-center">Login to your account</h2>
